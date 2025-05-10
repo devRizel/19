@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Madridejos Cebu Barangays Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../includes/leaflet.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #f4f4f4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      display: block;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    .open-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1100;
+      font-size: 24px;
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      transition: left 0.3s, right 0.3s;
+    }
+
+    .open-btn.moved {
+      left: auto;
+      right: 15px;
+    }
+
+    .popup {
+      display: none;
+      background-color: rgba(0,0,0,0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      z-index: 1100;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 200px;
+    }
+
+    .popup-content p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button-group button {
+      width: 150px;
+      padding: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: white;
+      transition: background-color 0.2s;
+    }
+
+    .button-group button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <center>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#" id="exitConfirmButton">Exit</a>
+    </center>
+  </div>
+
+  <button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+  <div id="popupCloseRight" class="popup">
+    <div class="popup-content">
+      <p>Are you sure you want to Exit?</p>
+      <div class="button-group">
+        <button id="exitButton">Yes</button>
+        <button id="closePopup">No</button>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+<center><h1>Barangay Kaongkod</h1></center>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; margin: 20px auto; padding-left: 20px; padding-right: 20px;">
+  <tr><td>Population % (2020)</td><td>8.07%</td></tr>
+  <tr><td>Population (2020)</td><td>3,392</td></tr>
+  <tr><td>Population (2015)</td><td>2,965</td></tr>
+  <tr><td>Change (2015–2020)</td><td>14.40%</td></tr>
+  <tr><td>Annual Growth Rate</td><td>2.73%</td></tr>
+  <tr><td>Barangay Captain</td><td>Magdalena Bautro Marollano</td></tr>
+</table>
+<p style="text-align: justify; padding-left: 20px; padding-right: 20px;">
+  Barangay Kaongkod, located in Madridejos on the northern tip of Bantayan Island, Cebu, offers a blend of natural beauty and historical significance. Here's an overview of its attractions and historical sites:
+
+
+</p>
+<h1 style="font-size: 20px;">
+  🏝️ Natural Attractions
+</h1>
+<p style="text-align: justify; padding-left: 20px; padding-right: 20px;">
+  1. Pantalan (Dock Area)
+  Pantalan serves as a central hub for local fishing activities. Its scenic views make it a popular spot for photography, especially during sunrise and sunset.
+  
+  2. Enteng Beach
+  A serene beach known for its clear waters and white sand, making it ideal for swimming and relaxation.
+  
+  3. Sunrise Beach
+  Located near Pantalan, this beach offers breathtaking sunrise views, perfect for early morning walks and reflection.
+  www.slideshare.net
+  
+  4. Kabakhawan
+  An adventurous spot for nature enthusiasts, Kabakhawan is known for its rich biodiversity and tranquil environment.
+  www.slideshare.net
+  
+  5. Beer Garden
+  A local establishment offering karaoke and panoramic views of the sea, providing a unique cultural experience.
+  
+  
+</p>
+<h1 style="font-size: 20px;">
+  🏰 Historical Significance
+</h1>
+<p style="text-align: justify; padding-left: 20px; padding-right: 20px;">
+  Kaongkod's strategic location led to the construction of a watchtower during the Spanish era. This tower served as a lookout to warn the town of approaching Moro pirates, showcasing the barangay's historical role in coastal defense .
+
+</p>
+<h1 style="font-size: 20px;">
+🏡 Community and Governance
+</h1>
+<p style="text-align: justify; padding-left: 20px; padding-right: 20px;">
+  Barangay Kaongkod is led by Punong Barangay Magdalena B. Marollano, who envisions a community characterized by transparency, accountability, and environmental consciousness 
+</p>
+
+<script>
+        // Toggle Sidebar function
+        function toggleSidebar() {
+      var sidebar = document.getElementById("mySidebar");
+      var btn = document.querySelector(".open-btn");
+
+      if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px"; // hide the sidebar
+        btn.classList.remove("moved"); // move button back to the left
+      } else {
+        sidebar.style.left = "0px"; // show the sidebar
+        btn.classList.add("moved"); // move button to the right
+      }
+    }
+
+    // Close the sidebar if clicking outside of it
+    document.addEventListener('click', function(event) {
+      var sidebar = document.getElementById("mySidebar");
+      var btn = document.querySelector(".open-btn");
+
+      // Check if the click is outside the sidebar and the button
+      if (!sidebar.contains(event.target) && !btn.contains(event.target) && sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px"; // hide the sidebar
+        btn.classList.remove("moved"); // move button back to the left
+      }
+    });
+</script>
+<script>
+  $(document).ready(function () {
+    // Show the exit confirmation popup
+    $(document).on("click", "#exitConfirmButton", function () {
+      $("#popupCloseRight").css("display", "flex"); // Show the popup
+    });
+
+    // Close the exit confirmation popup
+    $(document).on("click", "#closePopup", function () {
+      $("#popupCloseRight").css("display", "none"); // Hide the popup
+    });
+
+    // Exit and redirect to a blank page
+    document.getElementById("exitButton").addEventListener("click", function () {
+      window.location.href = "about:blank"; // Redirect to blank page
+    });
+  });
+</script>
+</body>
+</html>
